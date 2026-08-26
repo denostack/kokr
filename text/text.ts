@@ -95,8 +95,7 @@ export function text(
 
       const matched = string.match(RE_DETECT);
       if (matched) {
-        const [allowed, valid, invalid] =
-          patterns[[...matched].slice(1).findIndex((v) => v)];
+        const [allowed, valid, invalid] = patterns[[...matched].slice(1).findIndex((v) => v)];
 
         const josa = allowed.has(jongseong(word)) ? invalid : valid;
         const remain = string.slice(matched[0].length);

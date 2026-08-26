@@ -1,4 +1,4 @@
-import { assertEquals } from "testing/asserts.ts";
+import { assertEquals } from "@std/assert";
 import { format } from "./format.ts";
 
 Deno.test("@kokr/id, format default case", () => {

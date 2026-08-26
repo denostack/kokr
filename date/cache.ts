@@ -1,4 +1,4 @@
-import { DateInfo, RetrieveHolidays } from "./holiday.ts";
+import type { DateInfo, RetrieveHolidays } from "./holiday.ts";
 
 interface HolidayCache {
   [year: number]: {

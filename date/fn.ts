@@ -1,13 +1,12 @@
 import { cache } from "./cache.ts";
-import { DateInfo as _DateInfo, getHolidaysFromHttp } from "./holiday.ts";
+import { getHolidaysFromHttp, type RetrieveHolidays } from "./holiday.ts";
 
 /**
  * 서버에서 공휴일 관련 정보를 가져옵니다. / Get Holidays from Http Server
- * @type {(year: number) => Promise<_DateInfo[]>}
  * @param {number} year
- * @return {Promise<_DateInfo[]>}
+ * @return {Promise<DateInfo[]>}
  */
-export const getHolidays = cache(getHolidaysFromHttp);
+export const getHolidays: RetrieveHolidays & { clear: () => void } = cache(getHolidaysFromHttp);
 
 function format(date: Date) {
   const year = date.getFullYear();

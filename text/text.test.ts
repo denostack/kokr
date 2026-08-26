@@ -1,4 +1,4 @@
-import { assertEquals } from "testing/asserts.ts";
+import { assertEquals } from "@std/assert";
 import { text } from "./text.ts";
 
 Deno.test("@kokr/text, text empty", () => {

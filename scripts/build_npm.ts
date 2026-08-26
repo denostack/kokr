@@ -1,9 +1,9 @@
-import { build, emptyDir } from "dnt/mod.ts";
+import { build, emptyDir } from "@deno/dnt";
+import { bgGreen } from "@std/fmt/colors";
+import denoJson from "../deno.json" with { type: "json" };
 
-const denoInfo = JSON.parse(
-  Deno.readTextFileSync(new URL("../deno.json", import.meta.url)),
-);
-const version = denoInfo.version;
+const version = denoJson.version;
+console.log(bgGreen(`version: ${version}`));
 
 await emptyDir("./.npm");
 
@@ -91,6 +91,9 @@ await Promise.all(services.map(({ name, description, keywords }) =>
       ],
     },
     test: false,
+    compilerOptions: {
+      lib: ["ES2021", "DOM"],
+    },
     package: {
       name: `@kokr/${name}`,
       version,
@@ -99,13 +102,15 @@ await Promise.all(services.map(({ name, description, keywords }) =>
       license: "MIT",
       repository: {
         type: "git",
-        url: "git+https://github.com/wan2land/kokr.git",
+        url: "git+https://github.com/denostack/kokr.git",
       },
       bugs: {
-        url: "https://github.com/wan2land/kokr/issues",
+        url: "https://github.com/denostack/kokr/issues",
       },
     },
-  }).then(() => Deno.copyFile(`${name}/README.md`, `.npm/${name}/README.md`))
+    postBuild() {
+      Deno.copyFileSync("LICENSE", `.npm/${name}/LICENSE`);
+      Deno.copyFileSync(`${name}/README.md`, `.npm/${name}/README.md`);
+    },
+  })
 ));
-
-// post build steps

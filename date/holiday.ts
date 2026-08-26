@@ -32,7 +32,6 @@ export interface DateInfo {
 
 const defaultHolidayUri: ((year: number) => string)[] = [
   (year) => `https://holidays.dist.be/${year}.json`,
-  (year) => `https://cdn.jsdelivr.net/gh/distbe/holidays@gh-pages/${year}.json`,
 ];
 
 export interface GetHolidaysFromHttpOptions {

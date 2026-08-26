@@ -1,5 +1,5 @@
-import { assertEquals } from "testing/asserts.ts";
-import { assertSpyCalls, spy } from "testing/mock.ts";
+import { assertEquals } from "@std/assert";
+import { assertSpyCalls, spy } from "@std/testing/mock";
 import { cache } from "./cache.ts";
 
 const dataInfos = [

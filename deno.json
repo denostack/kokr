@@ -1,25 +1,35 @@
 {
+  "name": "@denostack/kokr",
   "version": "0.4.1",
-  "imports": {
-    "dnt/": "https://deno.land/x/dnt@0.34.0/",
-    "testing/": "https://deno.land/std@0.183.0/testing/"
+  "exports": {
+    ".": "./mod.ts",
+    "./date": "./date/mod.ts",
+    "./id": "./id/mod.ts",
+    "./phone": "./phone/mod.ts",
+    "./text": "./text/mod.ts"
   },
   "tasks": {
     "test": "deno task test:unit && deno task test:lint && deno task test:format && deno task test:types",
-    "test:unit": "deno test -A --unstable",
-    "test:lint": "deno lint",
     "test:format": "deno fmt --check",
-    "test:types": "find . -name '*.ts' | xargs deno check --unstable",
-    "build:npm": "deno run -A scripts/build_npm.ts"
+    "test:lint": "deno lint",
+    "test:unit": "deno test -A",
+    "test:types": "find . -name '*.ts' -not -path './.npm/*' | xargs deno check",
+    "build:npm": "deno run --allow-env --allow-read --allow-write --allow-run scripts/build_npm.ts"
+  },
+  "imports": {
+    "@deno/dnt": "jsr:@deno/dnt@^0.42.3",
+    "@std/assert": "jsr:@std/assert@^1.0.19",
+    "@std/fmt": "jsr:@std/fmt@^1.0.9",
+    "@std/testing": "jsr:@std/testing@^1.0.17"
   },
   "lint": {
-    "files": {
-      "exclude": [".npm/"]
-    }
+    "exclude": [".npm"]
   },
   "fmt": {
-    "files": {
-      "exclude": [".npm/"]
-    }
+    "exclude": [".npm"],
+    "lineWidth": 120
+  },
+  "publish": {
+    "exclude": [".npm", ".github", ".vscode", "scripts", "examples", "**/*.test.ts"]
   }
 }

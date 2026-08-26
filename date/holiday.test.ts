@@ -1,5 +1,5 @@
-import { assertEquals } from "testing/asserts.ts";
-import { assertSpyCallArgs, stub } from "testing/mock.ts";
+import { assertEquals } from "@std/assert";
+import { assertSpyCallArgs, stub } from "@std/testing/mock";
 import { getHolidaysFromHttp } from "./holiday.ts";
 
 const dataInfos = [

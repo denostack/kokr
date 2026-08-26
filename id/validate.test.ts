@@ -1,4 +1,4 @@
-import { assertEquals } from "testing/asserts.ts";
+import { assertEquals } from "@std/assert";
 import { validate } from "./validate.ts";
 
 Deno.test("@kokr/id, validate korean", () => {

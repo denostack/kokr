@@ -1,5 +1,5 @@
-import { assertEquals } from "testing/asserts.ts";
-import { assertSpyCalls, stub } from "testing/mock.ts";
+import { assertEquals } from "@std/assert";
+import { assertSpyCalls, stub } from "@std/testing/mock";
 import { getNextBusinessDay, isHoliday } from "./fn.ts";
 
 const dataInfos = [
