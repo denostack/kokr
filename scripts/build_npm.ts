@@ -70,19 +70,6 @@ await Promise.all(services.map(({ name, description, keywords }) =>
       custom: [
         {
           package: {
-            name: "node-fetch",
-            version: "~3.1.0",
-          },
-          globalNames: [{
-            name: "fetch",
-            exportName: "default",
-          }, {
-            name: "RequestInit",
-            typeOnly: true, // only used in type declarations
-          }],
-        },
-        {
-          package: {
             name: "@denostack/shim-webstore",
             version: "~0.1.0",
           },
