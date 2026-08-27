@@ -22,11 +22,11 @@ export interface DateInfo {
   holiday: boolean;
   /**  API에서 주는 정보, 해당 기념일에 대한 기타 설명이 포함된 경우가 있음. */
   remarks: string | null;
-  /**  공휴일인지, 기념일인지, 24절기인지.. enum 참고*/
+  /**  공휴일, 기념일, 24절기 구분. enum 참고 */
   kind: DateKind;
-  /**  HH:mm 정확한 표준 시간, DateKind.SolarTerms(24절기) 경우 반환 */
+  /**  HH:mm 정확한 표준 시간, DateKind.SolarTerms(24절기)인 경우 반환 */
   time: string | null;
-  /**  태양황경(도), DateKind.SolarTerms(24절기) 경우 반환 */
+  /**  태양황경(도), DateKind.SolarTerms(24절기)인 경우 반환 */
   sunLng: number | null;
 }
 

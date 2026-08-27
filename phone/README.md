@@ -1,28 +1,36 @@
-# koKR - phone
+# @kokr/phone <a href="https://github.com/denostack"><img src="https://raw.githubusercontent.com/denostack/images/main/logo.svg" width="160" align="right" /></a>
 
 <p>
-  <a href="https://github.com/wan2land/kokr/actions"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/wan2land/kokr/ci.yml?branch=main&logo=github&style=flat-square" /></a>
-  <a href="https://codecov.io/gh/wan2land/kokr"><img alt="Coverage" src="https://img.shields.io/codecov/c/gh/wan2land/kokr?style=flat-square" /></a>
+  <a href="https://github.com/denostack/kokr/actions"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/denostack/kokr/ci.yml?branch=main&logo=github&style=flat-square" /></a>
+  <a href="https://codecov.io/gh/denostack/kokr"><img alt="Coverage" src="https://img.shields.io/codecov/c/gh/denostack/kokr?style=flat-square" /></a>
   <img alt="License" src="https://img.shields.io/npm/l/@kokr/phone.svg?style=flat-square" />
   <img alt="Language Typescript" src="https://img.shields.io/badge/language-Typescript-007acc.svg?style=flat-square" />
   <br />
-  <a href="https://deno.land/x/kokr/phone"><img alt="deno.land/x/kokr/phone" src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/wan2land/kokr/main/deno.json&query=$.version&display_name=tag&label=deno.land/x/kokr@&style=flat-square&logo=deno&labelColor=000&color=777&suffix=/phone" /></a>
+  <a href="https://jsr.io/@denostack/kokr"><img alt="JSR version" src="https://jsr.io/badges/@denostack/kokr?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@kokr/phone"><img alt="Version" src="https://img.shields.io/npm/v/@kokr/phone.svg?style=flat-square&logo=npm" /></a>
   <a href="https://npmcharts.com/compare/@kokr/phone?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/@kokr/phone.svg?style=flat-square" /></a>
 </p>
+
+**한국어** | [English](https://github.com/denostack/kokr/blob/main/phone/README.en.md)
 
 전화번호와 관련된 유틸리티 함수를 제공합니다.
 
 ## 설치
 
 ```bash
+# Deno
+deno add jsr:@denostack/kokr
+
+# Node.js / Bun
 npm install @kokr/phone
 ```
 
-만약, Deno를 사용한다면 아래와 같이 import 할 수 있습니다.
+```ts
+// Deno
+import { format } from "@denostack/kokr/phone";
 
-```typescript
-import {} from "https://deno.land/x/kokr/phone/mod.ts";
+// Node.js / Bun
+import { format } from "@kokr/phone";
 ```
 
 ## 사용법
@@ -47,4 +55,4 @@ format("02****####"); // '02-****-####'
 
 ## API
 
-[API 문서 보기](https://deno.land/x/kokr/phone/mod.ts)
+[API 문서 보기](https://jsr.io/@denostack/kokr/doc)

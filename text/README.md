@@ -1,37 +1,46 @@
-# koKR - text
+# @kokr/text <a href="https://github.com/denostack"><img src="https://raw.githubusercontent.com/denostack/images/main/logo.svg" width="160" align="right" /></a>
 
 <p>
-  <a href="https://github.com/wan2land/kokr/actions"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/wan2land/kokr/ci.yml?branch=main&logo=github&style=flat-square" /></a>
-  <a href="https://codecov.io/gh/wan2land/kokr"><img alt="Coverage" src="https://img.shields.io/codecov/c/gh/wan2land/kokr?style=flat-square" /></a>
+  <a href="https://github.com/denostack/kokr/actions"><img alt="Build" src="https://img.shields.io/github/actions/workflow/status/denostack/kokr/ci.yml?branch=main&logo=github&style=flat-square" /></a>
+  <a href="https://codecov.io/gh/denostack/kokr"><img alt="Coverage" src="https://img.shields.io/codecov/c/gh/denostack/kokr?style=flat-square" /></a>
   <img alt="License" src="https://img.shields.io/npm/l/@kokr/text.svg?style=flat-square" />
   <img alt="Language Typescript" src="https://img.shields.io/badge/language-Typescript-007acc.svg?style=flat-square" />
   <br />
-  <a href="https://deno.land/x/kokr/text"><img alt="deno.land/x/kokr/text" src="https://img.shields.io/badge/dynamic/json?url=https://raw.githubusercontent.com/wan2land/kokr/main/deno.json&query=$.version&display_name=tag&label=deno.land/x/kokr@&style=flat-square&logo=deno&labelColor=000&color=777&suffix=/text" /></a>
+  <a href="https://jsr.io/@denostack/kokr"><img alt="JSR version" src="https://jsr.io/badges/@denostack/kokr?style=flat-square" /></a>
   <a href="https://www.npmjs.com/package/@kokr/text"><img alt="Version" src="https://img.shields.io/npm/v/@kokr/text.svg?style=flat-square&logo=npm" /></a>
   <a href="https://npmcharts.com/compare/@kokr/text?minimal=true"><img alt="Downloads" src="https://img.shields.io/npm/dt/@kokr/text.svg?style=flat-square" /></a>
 </p>
 
+**한국어** | [English](https://github.com/denostack/kokr/blob/main/text/README.en.md)
+
+한국어 문장의 조사 처리를 도와주는 유틸리티입니다. 은/는/이/가 등의 조사를 적절하게 처리합니다.
+
 ## 설치
 
 ```bash
+# Deno
+deno add jsr:@denostack/kokr
+
+# Node.js / Bun
 npm install @kokr/text
 ```
 
-만약, Deno를 사용한다면 아래와 같이 import 할 수 있습니다.
+```ts
+// Deno
+import { text } from "@denostack/kokr/text";
 
-```typescript
-import text from "https://deno.land/x/kokr/text/mod.ts";
+// Node.js / Bun
+import { text } from "@kokr/text";
 ```
 
 ## 사용법
 
 ### 조사
 
-은/는/이/가와 같은 조사를 자동으로 붙여주는 기능을 템플릿 리터럴(Template
-Literal)을 통해 제공합니다.
+은/는/이/가와 같은 조사를 자동으로 붙여주는 기능을 템플릿 리터럴(Template Literal)을 통해 제공합니다.
 
 ```typescript
-import text from "@kokr/text";
+import { text } from "@kokr/text";
 
 let name1 = "사과";
 let name2 = "코코넛";
@@ -93,9 +102,8 @@ console.log(text`${place}로 갑시다.`); // 서울로 갑시다.
 
 **모호한 케이스**
 
-"아/야"와 "이야/야"는 모호한 케이스가 있습니다. "야"로 끝나는 경우에는 "이야/야"
-규칙이 우선적으로 적용됩니다. 명확하게 사용하려면 "이야", "아"를 사용해야
-합니다.
+"아/야"와 "이야/야"는 모호한 케이스가 있습니다. "야"로 끝나는 경우에는 "이야/야" 규칙이 우선적으로 적용됩니다. 명확하게
+사용하려면 "이야", "아"를 사용해야 합니다.
 
 ```typescript
 // 명확한 케이스
@@ -134,7 +142,7 @@ console.log(text`${"Banana"}은 코딩 합니다.`); // Banana는 코딩 합니�
 
 ### 괄호 무시
 
-괄호가 포함된 경우, 괄호안의 텍스트는 무시합니다.
+괄호가 포함된 경우, 괄호 안의 텍스트는 무시합니다.
 
 ```typescript
 console.log(text`${"코코넛(바나나)"}은 코딩 합니다.`); // 코코넛(바나나)은 코딩 합니다.
@@ -160,7 +168,7 @@ function printResult(winner: string, loser: string) {
 
 ### 조사 변환 없이 그대로 사용하기
 
-조사 변환없이 그대로 사용하려면 다음과 같이 사용하면 됩니다.
+조사 변환 없이 그대로 사용하려면 다음과 같이 사용하면 됩니다.
 
 ```typescript
 console.log(text`${name}는 가나다라..`); // 이렇게 되면 '는'은 '은/는'으로 변환됩니다.
@@ -170,13 +178,11 @@ console.log(text`${name}{'는'} 가나다라..`); // 이렇게 되면 '는'은 �
 
 ## API
 
-[API 문서 보기](https://deno.land/x/kokr/text/mod.ts)
+[API 문서 보기](https://jsr.io/@denostack/kokr/doc)
 
 ## 함께 보면 좋아요
 
-- [Hangul.js](https://github.com/e-/Hangul.js) 한글 문장의 자/모음을 분리하는
+- [Hangul.js](https://github.com/e-/Hangul.js) 한글 문장의 자/모음을 분리하는 라이브러리
+- [inko](https://github.com/738/inko) 영타를 한글로, 혹은 한타를 영어로 변환해주는 라이브러리
+- [josa-complete](https://github.com/rycont/josa-complete) String.prototype을 확장해서 조사를 깔끔하게 붙여주는
   라이브러리
-- [inko](https://github.com/738/inko) 영타를 한글로, 혹은 한타를 영어로
-  변환해주는 라이브러리
-- [josa-complete](https://github.com/rycont/josa-complete) String.prototype을
-  확장해서 조사를 깔끔하게 붙여주는 라이브러리
